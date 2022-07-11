@@ -1,4 +1,4 @@
-package web;
+package web.service;
 
 public class Car {
 
