@@ -1,4 +1,4 @@
-package web.service;
+package web.model;
 
 public class Car {
 

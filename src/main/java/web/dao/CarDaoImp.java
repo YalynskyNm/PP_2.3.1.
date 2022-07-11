@@ -1,7 +1,7 @@
 package web.dao;
 
 import org.springframework.stereotype.Component;
-import web.service.Car;
+import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
