@@ -1,8 +1,13 @@
 package hiber.model;
 
+import lombok.EqualsAndHashCode;
+import org.hibernate.Hibernate;
+
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
+@EqualsAndHashCode
 @Table(name = "users")
 public class User {
 
@@ -20,9 +25,8 @@ public class User {
     @Column(name = "lastName")
     private String lastName;
 
-
-
-    public User() {}
+    public User() {
+    }
 
     public User(String firstName, String lastName, int age) {
         this.firstName = firstName;
@@ -60,6 +64,19 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }
 
